@@ -114,16 +114,58 @@ const roles = [
 
     <main>
       <section class="mx-auto max-w-6xl px-5 pb-8 pt-14 md:pb-14 md:pt-20">
-        <div class="grid items-start gap-10 md:grid-cols-12">
-          <div class="md:col-span-7">
-            <div class="flex flex-wrap gap-2">
-              <span class="tag">Built for MBA students</span>
-              <span class="tag">Events • Publications • Support</span>
-              <span class="tag">Student-led, partner-ready</span>
+        <div class="card relative overflow-hidden p-0">
+          <img
+            src="/images/quadrangle.jpg"
+            alt="University of Sydney Main Quadrangle building"
+            class="h-[340px] w-full object-cover md:h-[440px]"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div
+            class="absolute inset-0"
+            style="
+              background:
+                linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.12) 100%),
+                radial-gradient(900px 420px at 10% 10%, rgba(59,91,255,0.18), transparent 55%),
+                radial-gradient(900px 420px at 30% 60%, rgba(0,210,255,0.12), transparent 55%),
+                radial-gradient(900px 420px at 55% 30%, rgba(255,46,136,0.10), transparent 55%);
+            "
+          ></div>
+
+          <div class="absolute inset-0 p-5 md:p-8">
+            <div class="flex h-full flex-col justify-end">
+              <div class="mb-auto">
+                <span class="inline-flex rounded-full border px-3 py-1 text-xs font-semibold tag">Sydney Campus</span>
+              </div>
+
+              <div class="max-w-2xl">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="tag">Built for MBA students</span>
+                  <span class="tag">Events • Publications • Support</span>
+                  <span class="tag">Student-led, partner-ready</span>
+                </div>
+                <h1 class="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-brand md:text-6xl">
+                  MBASA: modern, professional, and built for connection.
+                </h1>
+                <p class="mt-4 max-w-xl text-base leading-relaxed text-black/70 md:text-lg">
+                  MBASA builds an inclusive community, empowers professional success, and connects students, alumni, and partners.
+                </p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a class="btn btn-primary" href="/join">
+                    Get involved
+                    <span aria-hidden="true">→</span>
+                  </a>
+                  <a class="btn btn-ghost" href="/about">Explore what we do</a>
+                </div>
+              </div>
             </div>
-            <h1 class="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-brand md:text-6xl">
-              MBASA: modern, professional, and built for connection.
-            </h1>
+          </div>
+        </div>
+
+        <div class="mt-10 grid items-start gap-10 md:grid-cols-12">
+          <div class="md:col-span-7">
+            <h2 class="font-display text-2xl tracking-tight text-brand md:text-3xl">What MBASA stands for</h2>
             <p class="mt-5 max-w-xl text-base leading-relaxed text-black/70 md:text-lg">
               MBASA exists to build an inclusive community, empower professional success, and act as a bridge between
               students, alumni, and the broader business ecosystem — a cohesive hub for the MBA experience.
