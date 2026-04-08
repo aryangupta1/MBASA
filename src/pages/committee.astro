@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Committee — MBASA">
+  <div class="min-h-screen bg-ambient grain font-sans">
+    <header class="border-b border-black/10 bg-white/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <a href="/" class="inline-flex items-center gap-3">
+          <span class="grid h-9 w-9 place-items-center rounded-xl border border-black/10 bg-white font-display text-sm tracking-tight shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.14)]">
+            MB
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display text-sm text-brand">MBASA</span>
+            <span class="block -mt-0.5 text-xs text-black/60">Committee</span>
+          </span>
+        </a>
+        <nav class="hidden items-center gap-6 text-sm text-black/70 md:flex">
+          <a class="hover:text-black" href="/about">About</a>
+          <a class="hover:text-black" href="/events">Events</a>
+          <a class="hover:text-black" href="/publications">Publications</a>
+          <a class="hover:text-black" href="/committee">Committee</a>
+          <a class="hover:text-black" href="/partners">Partners</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a class="btn btn-ghost hidden sm:inline-flex" href="/join">Join</a>
+          <a class="btn btn-primary" href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 py-12 md:py-16">
+      <h1 class="font-display text-4xl tracking-tight text-brand md:text-5xl">Committee</h1>
+      <p class="mt-4 max-w-2xl text-lg text-black/70">
+        MBASA runs on clear roles and stream leads. If you’re keen to contribute, we’ll match you to a stream based on your interests.
+      </p>
+
+      <div class="mt-8 grid gap-4 md:grid-cols-12">
+        <section class="md:col-span-7">
+          <div class="card p-6">
+            <h2 class="font-display text-xl tracking-tight text-brand">Core roles</h2>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              {[
+                { t: "President", c: "--mbasa-sticky-yellow", d: "Sets direction, aligns streams, represents the cohort." },
+                { t: "Vice President", c: "--mbasa-sticky-yellow", d: "Supports delivery, keeps momentum, steps in as needed." },
+                { t: "Treasurer", c: "--mbasa-sticky-green", d: "Manages budget, sponsorship coordination, and basic reporting." },
+                { t: "Communications", c: "--mbasa-sticky-yellow", d: "Keeps comms consistent across channels and updates." }
+              ].map((r) => (
+                <div class="rounded-2xl border border-black/10 bg-white p-4" style={`border-color: color-mix(in oklab, var(${r.c}) 55%, rgba(0,0,0,.08));`}>
+                  <div class="flex items-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full" style={`background: var(${r.c});`} />
+                    <p class="text-sm font-semibold text-black/80">{r.t}</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/70">{r.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-4 card p-6">
+            <h2 class="font-display text-xl tracking-tight text-brand">Stream leads</h2>
+            <p class="mt-2 text-sm text-black/70">Each stream runs projects end-to-end and recruits volunteers.</p>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              {[
+                { t: "Events", c: "--mbasa-sticky-red", href: "/events" },
+                { t: "Publications", c: "--mbasa-sticky-orange", href: "/publications" },
+                { t: "Operations / IT", c: "--mbasa-sticky-teal", href: "/join" },
+                { t: "External relations", c: "--mbasa-sticky-violet", href: "/partners" }
+              ].map((s) => (
+                <a class="card p-4 hover:opacity-90" href={s.href}>
+                  <div class="flex items-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full" style={`background: var(${s.c});`} />
+                    <span class="text-sm font-semibold text-black/80">{s.t}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <aside class="md:col-span-5">
+          <div class="card p-6">
+            <h2 class="font-display text-xl tracking-tight text-brand">How to join</h2>
+            <p class="mt-2 text-sm text-black/70">
+              Tell us what you’re interested in and we’ll connect you with the right stream lead.
+            </p>
+            <div class="mt-4 grid gap-3">
+              <a class="btn btn-primary w-full" href="/join">Join MBASA</a>
+              <a class="btn btn-ghost w-full" href="/contact">Ask a question</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="border-t border-black/10 bg-white/70">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-black/60 md:flex-row md:items-center md:justify-between">
+        <p>© MBASA.</p>
+        <div class="flex gap-5">
+          <a class="text-black/70 hover:text-black" href="/events">Events</a>
+          <a class="text-black/70 hover:text-black" href="/publications">Publications</a>
+          <a class="text-black/70 hover:text-black" href="/contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+

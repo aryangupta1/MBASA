@@ -1,3 +1,9 @@
+node_modules
+dist
+.astro
+.vercel
+.DS_Store
+
 # build output
 dist/
 # generated types

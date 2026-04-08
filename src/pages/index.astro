@@ -1,17 +1,550 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+type Stream = {
+  key: string;
+  title: string;
+  description: string;
+  colorVar:
+    | "--mbasa-sticky-gray"
+    | "--mbasa-sticky-yellow"
+    | "--mbasa-sticky-red"
+    | "--mbasa-sticky-orange"
+    | "--mbasa-sticky-teal"
+    | "--mbasa-sticky-violet"
+    | "--mbasa-sticky-pink"
+    | "--mbasa-sticky-green";
+  bullets: string[];
+  cta?: { label: string; href: string };
+};
+
+const streams: Stream[] = [
+  {
+    key: "events",
+    title: "Events that level you up",
+    description:
+      "Workshops, speaker sessions, and socials designed to make your MBA experience feel connected and high-energy — not siloed.",
+    colorVar: "--mbasa-sticky-red",
+    bullets: ["Interview + resume labs", "Panels + industry speaker nights", "Mixers + cohort socials"],
+    cta: { label: "See upcoming events", href: "#events" }
+  },
+  {
+    key: "publications",
+    title: "Publications with a point of view",
+    description:
+      "A student-led journal and blog featuring opinion pieces, exemplary coursework, and stories worth sharing beyond the classroom.",
+    colorVar: "--mbasa-sticky-orange",
+    bullets: ["Editorial team opportunities", "Member spotlights", "Cross-university collaboration"]
+  },
+  {
+    key: "buddy",
+    title: "Buddy system, done intelligently",
+    description:
+      "A lightweight matching flow to connect students by goals and interests — with privacy built in from day one.",
+    colorVar: "--mbasa-sticky-teal",
+    bullets: ["Goal-based matching", "Onboarding playbook", "Mentor + alumni connections"]
+  },
+  {
+    key: "partnerships",
+    title: "Partnerships + perks",
+    description:
+      "We bring in partners to unlock discounts, opportunities, and pathways into roles — while keeping it student-first.",
+    colorVar: "--mbasa-sticky-violet",
+    bullets: ["Student discounts", "Sponsor-supported events", "Priority access to roles + projects"]
+  },
+  {
+    key: "social",
+    title: "Social media + LinkedIn presence",
+    description:
+      "A professional platform for the cohort, plus a public-facing channel to connect with alumni and partners.",
+    colorVar: "--mbasa-sticky-yellow",
+    bullets: ["LinkedIn page + alumni hall of fame", "Student spotlights", "One-stop comms hub"],
+    cta: { label: "Help set up socials", href: "#get-involved" }
+  },
+  {
+    key: "budget",
+    title: "Budget that actually works",
+    description:
+      "Sustainable funding options without compromising the student vibe — built for long-term continuity.",
+    colorVar: "--mbasa-sticky-green",
+    bullets: ["Sponsors + partner perks", "Event tickets (student-first)", "Publications support + ads (tasteful)"]
+  }
+];
+
+const roles = [
+  { t: "President", c: "--mbasa-sticky-yellow" },
+  { t: "Vice President", c: "--mbasa-sticky-yellow" },
+  { t: "Treasurer", c: "--mbasa-sticky-green" },
+  { t: "Communications", c: "--mbasa-sticky-yellow" },
+  { t: "Events director", c: "--mbasa-sticky-red" },
+  { t: "External relations", c: "--mbasa-sticky-violet" },
+  { t: "Operations / IT", c: "--mbasa-sticky-teal" },
+  { t: "Publications", c: "--mbasa-sticky-orange" }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="MBASA — MBA Student Association">
+  <div class="min-h-screen bg-ambient grain font-sans">
+    <header class="sticky top-0 z-50 border-b border-black/10 bg-white/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <a href="/" class="group inline-flex items-center gap-3">
+          <span
+            class="grid h-9 w-9 place-items-center rounded-xl border border-black/10 bg-white font-display text-sm tracking-tight shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.14)]"
+          >
+            MB
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display text-sm text-brand">MBASA</span>
+            <span class="block -mt-0.5 text-xs text-black/60">MBA Student Association</span>
+          </span>
+        </a>
+        <nav class="hidden items-center gap-6 text-sm text-black/70 md:flex">
+          <a class="hover:text-black" href="/about">About</a>
+          <a class="hover:text-black" href="/events">Events</a>
+          <a class="hover:text-black" href="/publications">Publications</a>
+          <a class="hover:text-black" href="/committee">Committee</a>
+          <a class="hover:text-black" href="/partners">Partners</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a class="btn btn-ghost hidden sm:inline-flex" href="/join">Join</a>
+          <a class="btn btn-primary" href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="mx-auto max-w-6xl px-5 pb-8 pt-14 md:pb-14 md:pt-20">
+        <div class="grid items-start gap-10 md:grid-cols-12">
+          <div class="md:col-span-7">
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Built for MBA students</span>
+              <span class="tag">Events • Publications • Support</span>
+              <span class="tag">Student-led, partner-ready</span>
+            </div>
+            <h1 class="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-brand md:text-6xl">
+              MBASA: modern, professional, and built for connection.
+            </h1>
+            <p class="mt-5 max-w-xl text-base leading-relaxed text-black/70 md:text-lg">
+              MBASA exists to build an inclusive community, empower professional success, and act as a bridge between
+              students, alumni, and the broader business ecosystem — a cohesive hub for the MBA experience.
+            </p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a class="btn btn-primary" href="/join">
+                Get involved
+                <span aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn-ghost" href="/about">Explore what we do</a>
+            </div>
+
+            <div class="mt-10 grid gap-3 sm:grid-cols-3">
+              <div class="card px-4 py-3">
+                <p class="font-display text-base leading-none text-brand">Community-first</p>
+                <p class="mt-2 text-xs text-black/55">Inclusive, connected, and genuinely useful.</p>
+              </div>
+              <div class="card px-4 py-3">
+                <p class="font-display text-base leading-none text-brand">Career momentum</p>
+                <p class="mt-2 text-xs text-black/55">Workshops, panels, and practical skill-building.</p>
+              </div>
+              <div class="card px-4 py-3">
+                <p class="font-display text-base leading-none text-brand">Beyond the cohort</p>
+                <p class="mt-2 text-xs text-black/55">Links to alumni, partners, and other MBA communities.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5">
+            <div class="card overflow-hidden p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-xs font-semibold text-black/60">MBA Student Association</p>
+                  <h2 class="mt-2 font-display text-xl tracking-tight text-brand">MBASA</h2>
+                  <p class="mt-2 text-sm text-black/70">
+                    A student-led community connecting students, alumni, and partners through events, publications, and support.
+                  </p>
+                </div>
+                <div class="hidden h-10 w-10 rounded-xl border border-black/10 bg-white sm:block"></div>
+              </div>
+
+              <div class="mt-5 grid gap-3">
+                <div
+                  class="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.10)]"
+                  style="border-color: color-mix(in oklab, var(--mbasa-sticky-gray) 55%, rgba(255,255,255,.12));"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-gray);">
+                    </span>
+                    <p class="text-xs font-semibold text-black/70">Mission</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/80">
+                    Create a digitally connected platform for MBA students and beyond — an MBA nervous system.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.10)]"
+                  style="border-color: color-mix(in oklab, var(--mbasa-sticky-yellow) 55%, rgba(255,255,255,.12));"
+                >
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="inline-block h-2.5 w-2.5 rounded-full"
+                      style="background: var(--mbasa-sticky-yellow);"
+                    >
+                    </span>
+                    <p class="text-xs font-semibold text-black/70">What we do</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/80">
+                    Events, publications, buddy matching, and partnerships that make the MBA feel cohesive.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.10)]"
+                  style="border-color: color-mix(in oklab, var(--mbasa-sticky-pink) 55%, rgba(255,255,255,.12));"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-pink);">
+                    </span>
+                    <p class="text-xs font-semibold text-black/70">Question</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/80">
+                    How do we digitise the student experience without losing the human vibe?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <div class="grid gap-6 md:grid-cols-12 md:items-start">
+          <div class="md:col-span-5">
+            <h2 class="font-display text-2xl tracking-tight md:text-3xl">Core: mission, goals, values</h2>
+            <p class="mt-3 text-black/70">
+              MBASA is the one-stop hub for student comms, connection, and opportunities — built to scale across cohorts
+              and collaborate with other MBA bodies.
+            </p>
+          </div>
+          <div class="md:col-span-7">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Inclusive community</p>
+                <p class="mt-2 text-sm text-black/70">
+                  A place where students actually meet, share, and collaborate — online and IRL.
+                </p>
+              </div>
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Professional edge</p>
+                <p class="mt-2 text-sm text-black/70">
+                  Workshops and networks that translate into roles, projects, and confidence.
+                </p>
+              </div>
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Bridge + resource</p>
+                <p class="mt-2 text-sm text-black/70">
+                  We connect students, alumni, faculty, and partners — with a single source of truth.
+                </p>
+              </div>
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Student-first ops</p>
+                <p class="mt-2 text-sm text-black/70">
+                  Clear roles, lightweight governance, and documentation that doesn’t suck.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="streams" class="mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="font-display text-2xl tracking-tight md:text-3xl">Idea streams</h2>
+            <p class="mt-3 max-w-2xl text-black/70">
+              Events, publications, buddy system, partnerships — plus the roles that keep it running.
+            </p>
+          </div>
+          <a class="hidden text-sm font-semibold text-black/70 hover:text-black md:inline-flex" href="/join">
+            Join the committee <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          {streams.map((s) => (
+            <article class="card p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block h-2.5 w-2.5 rounded-full" style={`background: var(${s.colorVar});`} />
+                    <p class="text-xs font-semibold text-black/60">Stream</p>
+                  </div>
+                  <h3 class="mt-2 font-display text-xl tracking-tight">{s.title}</h3>
+                  <p class="mt-2 text-sm text-black/70">{s.description}</p>
+                </div>
+              </div>
+              <ul class="mt-4 grid gap-2 text-sm text-black/70">
+                {s.bullets.map((b) => (
+                  <li class="flex gap-2">
+                    <span class="mt-1 h-1.5 w-1.5 rounded-full" style={`background: var(${s.colorVar});`} />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              {s.cta ? (
+                <a class="mt-5 inline-flex text-sm font-semibold text-brand-primary hover:opacity-80" href={s.cta.href}>
+                  {s.cta.label} <span aria-hidden="true">→</span>
+                </a>
+              ) : null}
+            </article>
+          ))}
+
+          <article class="card p-6">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <p class="text-xs font-semibold text-black/60">Operating system</p>
+                <h3 class="mt-2 font-display text-xl tracking-tight">Roles & responsibilities</h3>
+                <p class="mt-2 text-sm text-black/70">
+                  A clean structure that keeps things moving without committee chaos.
+                </p>
+              </div>
+            </div>
+            <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {roles.map((r) => (
+                <div
+                  class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-semibold text-black/70"
+                  style={`border-color: color-mix(in oklab, var(${r.c}) 60%, rgba(255,255,255,.12));`}
+                >
+                  <span class="inline-block h-2 w-2 rounded-full align-middle" style={`background: var(${r.c});`} />
+                  <span class="ml-2 align-middle">{r.t}</span>
+                </div>
+              ))}
+            </div>
+            <p class="mt-4 text-xs text-black/55">Next: add role descriptions + a lightweight nominations/elections flow.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="get-involved" class="mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <div class="card p-6 md:p-8">
+          <div class="grid gap-8 md:grid-cols-12 md:items-center">
+            <div class="md:col-span-7">
+              <h2 class="font-display text-2xl tracking-tight md:text-3xl">Get involved</h2>
+              <p class="mt-3 text-black/70">
+                Want to help shape MBASA? We’re recruiting founding contributors across events, marketing, publications,
+                operations/IT, and partnerships.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="tag">Communications</span>
+                <span class="tag">Events</span>
+                <span class="tag">External relations</span>
+                <span class="tag">Operations / IT</span>
+                <span class="tag">Publications</span>
+              </div>
+            </div>
+            <div class="md:col-span-5">
+              <div class="grid gap-3">
+                <a class="btn btn-primary w-full" href="/join">Join the committee</a>
+                <a class="btn btn-ghost w-full" href="/events">Run an event</a>
+                <a class="btn btn-ghost w-full" href="/partners">Become a partner</a>
+              </div>
+              <p class="mt-3 text-center text-xs text-black/55">
+                Choose a stream and get involved — we’ll match you with the right lead.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="font-display text-2xl tracking-tight md:text-3xl">Upcoming highlights</h2>
+            <p class="mt-3 max-w-2xl text-black/70">
+              A clean, student-society pattern: featured events + an “add to calendar” workflow (easy to add later).
+            </p>
+          </div>
+          <span class="tag">Sample schedule</span>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <article class="card overflow-hidden">
+            <div class="h-1.5" style="background: var(--mbasa-sticky-green);" />
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="tag">Career</span>
+                <span class="text-xs text-black/50">Coming soon</span>
+              </div>
+              <h3 class="mt-3 font-display text-lg tracking-tight">Interview skills clinic</h3>
+              <p class="mt-2 text-sm text-black/70">
+                Short, high-signal description goes here. Link out to registration when live.
+              </p>
+              <div class="mt-4 flex gap-2">
+                <button class="btn btn-primary" type="button">Register</button>
+                <button class="btn btn-ghost" type="button">Details</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card overflow-hidden">
+            <div class="h-1.5" style="background: var(--mbasa-sticky-yellow);" />
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="tag">Social</span>
+                <span class="text-xs text-black/50">Coming soon</span>
+              </div>
+              <h3 class="mt-3 font-display text-lg tracking-tight">Corporate cocktails (mixer)</h3>
+              <p class="mt-2 text-sm text-black/70">
+                Short, high-signal description goes here. Link out to registration when live.
+              </p>
+              <div class="mt-4 flex gap-2">
+                <button class="btn btn-primary" type="button">Register</button>
+                <button class="btn btn-ghost" type="button">Details</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card overflow-hidden">
+            <div class="h-1.5" style="background: var(--mbasa-sticky-violet);" />
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="tag">Network</span>
+                <span class="text-xs text-black/50">Coming soon</span>
+              </div>
+              <h3 class="mt-3 font-display text-lg tracking-tight">Alumni panel: breaking in</h3>
+              <p class="mt-2 text-sm text-black/70">
+                Short, high-signal description goes here. Link out to registration when live.
+              </p>
+              <div class="mt-4 flex gap-2">
+                <button class="btn btn-primary" type="button">Register</button>
+                <button class="btn btn-ghost" type="button">Details</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="partners" class="mx-auto max-w-6xl px-5 py-10 md:py-14">
+        <div class="grid gap-6 md:grid-cols-12 md:items-start">
+          <div class="md:col-span-5">
+            <h2 class="font-display text-2xl tracking-tight md:text-3xl">Partners & sponsorships</h2>
+            <p class="mt-3 text-black/70">
+              We’re building a partner program focused on student discounts, speaker sessions, and pathways into projects
+              + roles.
+            </p>
+          </div>
+          <div class="md:col-span-7">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Perks that matter</p>
+                <p class="mt-2 text-sm text-black/70">Discounts, tools, and experiences students will actually use.</p>
+              </div>
+              <div class="card p-5">
+                <p class="text-sm font-semibold">High-signal access</p>
+                <p class="mt-2 text-sm text-black/70">Partners get visibility to a motivated, diverse MBA cohort.</p>
+              </div>
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Sponsored programming</p>
+                <p class="mt-2 text-sm text-black/70">Workshops, panels, and competitions with real outcomes.</p>
+              </div>
+              <div class="card p-5">
+                <p class="text-sm font-semibold">Tasteful branding</p>
+                <p class="mt-2 text-sm text-black/70">No spammy banners — clean placements that fit the site aesthetic.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-6xl px-5 pb-16 pt-10 md:pb-24 md:pt-14">
+        <div class="card p-6 md:p-8">
+          <div class="grid gap-8 md:grid-cols-12 md:items-center">
+            <div class="md:col-span-7">
+              <h2 class="font-display text-2xl tracking-tight md:text-3xl">Contact</h2>
+              <p class="mt-3 text-black/70">
+                Drop a note and we’ll route it to the right stream (events, publications, buddy system, partnerships, or
+                governance).
+              </p>
+              <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                <label class="grid gap-2 text-sm">
+                  <span class="text-black/70">Name</span>
+                  <input
+                    class="h-11 rounded-xl border border-black/10 bg-white px-3 text-black placeholder:text-black/35 focus:outline-none focus:ring-2 focus:ring-black/10"
+                    placeholder="Your name"
+                  />
+                </label>
+                <label class="grid gap-2 text-sm">
+                  <span class="text-black/70">Email</span>
+                  <input
+                    class="h-11 rounded-xl border border-black/10 bg-white px-3 text-black placeholder:text-black/35 focus:outline-none focus:ring-2 focus:ring-black/10"
+                    placeholder="you@university.edu"
+                  />
+                </label>
+                <label class="grid gap-2 text-sm sm:col-span-2">
+                  <span class="text-black/70">Message</span>
+                  <textarea
+                    class="min-h-28 rounded-xl border border-black/10 bg-white px-3 py-2 text-black placeholder:text-black/35 focus:outline-none focus:ring-2 focus:ring-black/10"
+                    placeholder="What are you trying to build with MBASA?"
+                  />
+                </label>
+                <a class="btn btn-primary sm:col-span-2" href="/contact">Send message</a>
+              </div>
+            </div>
+
+            <div class="md:col-span-5">
+              <div class="grid gap-3">
+                <div
+                  class="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.10)]"
+                  style="border-color: color-mix(in oklab, var(--mbasa-sticky-gray) 55%, rgba(255,255,255,.12));"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-gray);" />
+                    <p class="text-xs font-semibold text-black/60">Stream routing</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/80">We’ll connect you with the right lead once roles are finalised.</p>
+                </div>
+
+                <div
+                  class="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.10)]"
+                  style="border-color: color-mix(in oklab, var(--mbasa-sticky-yellow) 55%, rgba(255,255,255,.12));"
+                >
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="inline-block h-2.5 w-2.5 rounded-full"
+                      style="background: var(--mbasa-sticky-yellow);"
+                    />
+                    <p class="text-xs font-semibold text-black/60">Alumni</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/80">
+                    If you want to mentor or sponsor, we’ll set up a simple intake workflow.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.10)]"
+                  style="border-color: color-mix(in oklab, var(--mbasa-sticky-teal) 55%, rgba(255,255,255,.12));"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-teal);" />
+                    <p class="text-xs font-semibold text-black/60">Privacy</p>
+                  </div>
+                  <p class="mt-2 text-sm text-black/80">Buddy matching will be opt-in and minimal-data by design.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-black/10 bg-white/70">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-black/60 md:flex-row md:items-center md:justify-between">
+        <p>© MBASA.</p>
+        <div class="flex gap-5">
+          <a class="text-black/70 hover:text-black" href="/about">About</a>
+          <a class="text-black/70 hover:text-black" href="/events">Events</a>
+          <a class="text-black/70 hover:text-black" href="/publications">Publications</a>
+          <a class="text-black/70 hover:text-black" href="/contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

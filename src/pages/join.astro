@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Join — MBASA">
+  <div class="min-h-screen bg-ambient grain font-sans">
+    <header class="border-b border-black/10 bg-white/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <a href="/" class="inline-flex items-center gap-3">
+          <span class="grid h-9 w-9 place-items-center rounded-xl border border-black/10 bg-white font-display text-sm tracking-tight shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.14)]">
+            MB
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display text-sm text-brand">MBASA</span>
+            <span class="block -mt-0.5 text-xs text-black/60">Join</span>
+          </span>
+        </a>
+        <nav class="hidden items-center gap-6 text-sm text-black/70 md:flex">
+          <a class="hover:text-black" href="/about">About</a>
+          <a class="hover:text-black" href="/events">Events</a>
+          <a class="hover:text-black" href="/publications">Publications</a>
+          <a class="hover:text-black" href="/committee">Committee</a>
+          <a class="hover:text-black" href="/partners">Partners</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a class="btn btn-ghost hidden sm:inline-flex" href="/join">Join</a>
+          <a class="btn btn-primary" href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 py-12 md:py-16">
+      <h1 class="font-display text-4xl tracking-tight text-brand md:text-5xl">Join MBASA</h1>
+      <p class="mt-4 max-w-2xl text-lg text-black/70">
+        Choose a stream and get involved. We’ll connect you to the right lead and help you plug into the community.
+      </p>
+
+      <div class="mt-8 grid gap-4 md:grid-cols-2">
+        <a class="card p-6 hover:opacity-90" href="/events">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-red);" />
+            <h2 class="font-display text-xl tracking-tight text-brand">Events</h2>
+          </div>
+          <p class="mt-2 text-sm text-black/70">Plan and run workshops, panels, and socials.</p>
+        </a>
+        <a class="card p-6 hover:opacity-90" href="/publications">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-orange);" />
+            <h2 class="font-display text-xl tracking-tight text-brand">Publications</h2>
+          </div>
+          <p class="mt-2 text-sm text-black/70">Write, edit, and build the journal/blog platform.</p>
+        </a>
+        <a class="card p-6 hover:opacity-90" href="/buddy-system">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-teal);" />
+            <h2 class="font-display text-xl tracking-tight text-brand">Buddy system</h2>
+          </div>
+          <p class="mt-2 text-sm text-black/70">Help shape matching, onboarding, and student support.</p>
+        </a>
+        <a class="card p-6 hover:opacity-90" href="/partners">
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full" style="background: var(--mbasa-sticky-violet);" />
+            <h2 class="font-display text-xl tracking-tight text-brand">Partnerships</h2>
+          </div>
+          <p class="mt-2 text-sm text-black/70">Bring in perks, speakers, and sponsor-supported opportunities.</p>
+        </a>
+      </div>
+
+      <div class="mt-10 card p-6">
+        <h2 class="font-display text-xl tracking-tight text-brand">Not sure where you fit?</h2>
+        <p class="mt-2 text-sm text-black/70">
+          Send a message and we’ll help you choose a stream based on what you enjoy and the time you have.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="/contact">Message MBASA</a>
+          <a class="btn btn-ghost" href="/committee">View committee roles</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-black/10 bg-white/70">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-black/60 md:flex-row md:items-center md:justify-between">
+        <p>© MBASA.</p>
+        <div class="flex gap-5">
+          <a class="text-black/70 hover:text-black" href="/about">About</a>
+          <a class="text-black/70 hover:text-black" href="/contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+

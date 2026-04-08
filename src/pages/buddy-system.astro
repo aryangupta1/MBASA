@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Buddy System — MBASA">
+  <div class="min-h-screen bg-ambient grain font-sans">
+    <header class="border-b border-black/10 bg-white/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <a href="/" class="inline-flex items-center gap-3">
+          <span class="grid h-9 w-9 place-items-center rounded-xl border border-black/10 bg-white font-display text-sm tracking-tight shadow-[0_1px_0_0_rgba(0,0,0,.04),_0_10px_35px_rgba(1,72,164,.14)]">
+            MB
+          </span>
+          <span class="leading-tight">
+            <span class="block font-display text-sm text-brand">MBASA</span>
+            <span class="block -mt-0.5 text-xs text-black/60">Buddy system</span>
+          </span>
+        </a>
+        <nav class="hidden items-center gap-6 text-sm text-black/70 md:flex">
+          <a class="hover:text-black" href="/about">About</a>
+          <a class="hover:text-black" href="/events">Events</a>
+          <a class="hover:text-black" href="/publications">Publications</a>
+          <a class="hover:text-black" href="/committee">Committee</a>
+          <a class="hover:text-black" href="/partners">Partners</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a class="btn btn-ghost hidden sm:inline-flex" href="/join">Join</a>
+          <a class="btn btn-primary" href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 py-12 md:py-16">
+      <h1 class="font-display text-4xl tracking-tight text-brand md:text-5xl">Buddy system</h1>
+      <p class="mt-4 max-w-2xl text-lg text-black/70">
+        A student information intake and matching approach to connect people by goals and interests — with privacy built in.
+      </p>
+
+      <div class="mt-8 grid gap-4 md:grid-cols-12">
+        <div class="md:col-span-7">
+          <div class="card p-6">
+            <h2 class="font-display text-xl tracking-tight text-brand">What it supports</h2>
+            <ul class="mt-4 grid gap-2 text-sm text-black/70">
+              <li class="flex gap-2"><span class="mt-1 h-1.5 w-1.5 rounded-full" style="background: var(--mbasa-sticky-teal);" /><span>Onboarding and orientation support</span></li>
+              <li class="flex gap-2"><span class="mt-1 h-1.5 w-1.5 rounded-full" style="background: var(--mbasa-sticky-teal);" /><span>Peer learning and accountability</span></li>
+              <li class="flex gap-2"><span class="mt-1 h-1.5 w-1.5 rounded-full" style="background: var(--mbasa-sticky-teal);" /><span>Alumni mentorship connections</span></li>
+            </ul>
+          </div>
+
+          <div class="mt-4 card p-6">
+            <h2 class="font-display text-xl tracking-tight text-brand">Privacy principles</h2>
+            <p class="mt-2 text-sm text-black/70">
+              Opt-in, minimal data, and clear consent. The goal is useful matching without collecting anything unnecessary.
+            </p>
+          </div>
+        </div>
+
+        <aside class="md:col-span-5">
+          <div class="card p-6">
+            <h2 class="font-display text-xl tracking-tight text-brand">Help shape it</h2>
+            <p class="mt-2 text-sm text-black/70">If you’re keen on student experience and systems, this stream is for you.</p>
+            <div class="mt-4 grid gap-3">
+              <a class="btn btn-primary w-full" href="/join">Join Buddy system</a>
+              <a class="btn btn-ghost w-full" href="/contact">Ask a question</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="border-t border-black/10 bg-white/70">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-black/60 md:flex-row md:items-center md:justify-between">
+        <p>© MBASA.</p>
+        <div class="flex gap-5">
+          <a class="text-black/70 hover:text-black" href="/join">Join</a>
+          <a class="text-black/70 hover:text-black" href="/contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
